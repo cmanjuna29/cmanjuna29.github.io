@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Generic - Stellar by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>Relational Database Design</h1>
+						<h2>Dessigned a database for Freshens' Food Studio</h2>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Content -->
+							<section id="content" class="main">
+								<span class="image main"><img src="images/MODhead.png" width="200" height="500" alt=""> </span>
+								<h2>CLIENT BACKGROUND AND CURRENT STATE</h2>
+								<p align="justify">Located in the Cordova Recreation Centre, Freshens Fresh Food Studio is Purdue’s ‘healthy fresh casual’ concept offering which serves prepared-to-order food inspired by fresh ingredients. They are centred around creating a culture of health and wellness. Their signature fresh blended smoothies are extremely popular amongst Purdue students.</p>
+								<p align="justify">Freshens does not have a centralised database system to keep track of their data. Information regarding vendors, customer orders, employees and supplier orders are difficult to access. Some of their information is stored in spreadsheets, while others can only be found in physical copies. This rudimentary approach has caused Freshens to struggle to conveniently access the data they need.</p>
+								
+								<h2>INTRODUCTION - PROJECT OBJECTIVE</h2>
+								<p align="justify">
+									<li>Determine the flow of data within databases used by Freshens.</li>
+									<li>Find answers to crucial business problems by querying data.</li>
+									<li>Recommend key practices and changes for an effective system for Freshens.</li>
+									</p>
+								<h2>DATASET DESCRIPTION</h2>
+								<p align="justify">Freshens food studio has over 50 employees where an employee can have only one position, but each position can be held by multiple employees. Employees can work on multiple shifts and each shift consists of multiple employees. Every employee has a First Name, Last Name, DOB, Employee Id, Email, Position Id, Email, Phone number. Employee Id is a unique identifier. Each employee can have more than one phone number. Attributes for employee position are Position Id, Position description, Salary, and hourly wage of employees. Employee shift details are stored in a separate table which comprises Shift id, Start time, End time, Day.</p>
+								<p align="justify">Items can be purchased from multiple vendors and a single vendor can sell multiple items. Vendor has Vendor Id and name as its attributes where vendor id is the primary key. Inventory items can be described by Item Id, Item type, Item Name, Category Id, and Shelf life where item id is a unique identifier. Items have date of purchase from the vendor, unit cost of that specific item with respect to the vendor, quantity of item ordered from that vendor, total cost, and unit measure. Every item is mapped to a particular category and each category has one or more items. Each category can be distinctively identified by Category Id.</p>
+								<p align="justify">Each order consists of multiple products that are available on the menu and each product can be present in more than one order placed by the customer. Order date, Order Id, Payment type,Total price are the attributes for orders table where order id is the primary key. Product tables can be defined by Product id, Product name, Calories, and Price with Product Id as the primary key.</p>
+								<h2>ENTITY RELATIONSHIP DIAGRAM</h2>
+								<img src="images/MOD0.png" width="800" height="600" alt=""> <br>
+								<h2>RELATIONAL DATA MODEL</h2>
+								
+								<img src="images/MOD01.png" width="600" height="400" alt=""> <br>
+								
+								<h2>NORMALISATION</h2>
+								<p align="justify">We have created 8 entities, 3 associative entities and 2 relationships<br>
+								<li>The Employees table was in 0 NF due to Phone_number as a multi-valued attribute.</li>
+								<img src="images/MOD02.png" width="800" height="100" alt=""> <br>
+								It was converted to 1 NF by creating another table for Employee_ID, Phone_Number.<br>
+								<img src="images/MOD03.png" width="200" height="100" alt=""> <br>
+								Further, it was in 2NF since there were no partial dependencies due to the presence of a single primary key.<br>
+								The table was not in 3 NF due to a transitive dependency, since Employee_ID -> Position_Description -> Salary, Wage.<br>
+								It was converted to 3 NF by mapping each Position_Description to a Position_ID and creating a separate table to store the corresponding Salary and Wage.<br>
+								<img src="images/MOD04.png" width="400" height="100" alt=""> <br>
+								<h2><b>The final tables after normalisation are as below:</b></h2>
+								<h3>Employees</h3>
+								<img src="images/MOD05.png" width="600" height="100" alt=""> 
+								<h3>Phone</h3>
+								<img src="images/MOD06.png" width="200" height="100" alt=""> 
+								<h3>Position</h3>
+								<img src="images/MOD07.png" width="400" height="100" alt=""> 
+								<li>The Shift table was already in 2NF. It was not in 3NF due to the presence of a transitive dependency, since Employee_ID -> Shift_ID -> Start_Time, End_Time, Day.</li><br>
+								<img src="images/MOD08.png" width="600" height="150" alt=""> <br>
+								We converted it to 3NF by creating two separate tables.<br>
+								<b>The final tables after normalisation are as below:</b><br>
+								<img src="images/MOD09.png" width="800" height="200" alt=""> <br>
+								<li>The Orders table was already in 1NF due to no composite or multivalued attributes. However, it was not in 2NF since there were partial dependencies.</li><br>
+								<img src="images/MOD10.png" width="800" height="100" alt=""> <br>
+								<b>Functional dependencies:</b><br>
+								<img src="images/MOD11.png" width="400" height="100" alt=""> <br>
+								Three tables were created to convert it to 2NF. Finally, it was also in 3NF due to no transitive dependency.<br>
+								<b>The final tables after normalisation are as below:</b><br>
+								<img src="images/MOD12.png" width="800" height="200" alt=""> <br>
+
+								<li> The Items and Vendor information table was in 1NF. However, it was not in 2NF due to partial dependencies.</li><br>
+								<img src="images/MOD13.png" width="800" height="100" alt=""> <br>
+
+								<b>Functional dependencies:</b><br>
+								<img src="images/MOD14.png" width="400" height="100" alt=""> <br>
+								Three tables were created to convert it to 2NF. Finally, it was also in 3NF due to no transitive dependency.<br>
+								<b>The final tables after normalisation are as below:</b><br>
+								<img src="images/MOD15.png" width="600" height="100" alt=""> <br>
+								<img src="images/MOD16.png" width="700" height="200" alt=""> <br>
+								</p>
+
+								
+								<h2>DATA WAREHOUSE</h2>
+								<img src="images/MOD17.png" width="800" height="600" alt=""> <br>
+
+						
+								
+								<h2>DATA MODEL AND DESIGN CHOICES</h2>
+								<p align="justify">Information at Freshens Food Studio is maintained in the form of spreadsheets and physical copies. To ensure a smooth flow of information and easy accessibility to answers of crucial business problems, designing a data model for Freshens is imperative. The first step towards doing so was to get in touch with the business and figure out the business rules. The relationship cardinality was decided based on these rules. For example: one vendor supplies many items, also an item can be purchased from many vendors. This led us to create an associative entity between the two due to the presence of a many-to-many relationship. Finally, we created an entity relationship diagram after doing a thorough requirement analysis for Freshens. The ER diagram consists of information that can be broadly classified into 3 parts:<br>
+									<li>employee, position, shift</li>
+									<li>Item, vendor</li>
+									<li>Order, product</li><br>
+									All the tables were normalised and finally converted into a 3NF form before adding it to the data warehouse. For example: Since Position description had a transitive dependency on employee ID, we created a Position ID corresponding to each Position description and a different table called ‘Position’ after separating it from the employee table. Finally, the schema was created in MySQL workbench.
+								</p>
+								
+		
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						
+						<section>
+							<ul class="icons">
+								<li><a href="#" class="icon brands fa-linkedin alt"><span class="label">LinkedIn</span></a></li>
+								<li><a href="#" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
+							</ul>
+						</section>
+						<p class="copyright">&copy; 2023 Chethan Manjunath</p>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Generic - Stellar by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>Data Mining</h1>
+						<h2>Predicting Firm Collapse using various models and ensemble techniques</h2>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Content -->
+							<section id="content" class="main">
+								<span class="image main"><img src="images/DMhead.jpeg" width="200" height="600" alt=""> </span>
+								<h2>Problem Statement</h2>
+								<p align="justify">Firm collapse prediction has been a subject of interest for almost a century and it still ranks high among the hottest topics in economics. The aim of predicting financial distress is to develop a predictive model that combines various econometric measures and allows one to foresee a financial condition of a firm. The purpose of bankruptcy prediction is to assess the financial condition of a company and its future perspectives within the context of longterm operation on the market.</p>
+								
+								<h2>Implementation</h2>
+								<p align="justify">Data Files can be found at <a href="https://www.kaggle.com/competitions/bankruptcy-classification-project/data"><b>Kaggle</b></a> <br>
+											
+									<li><b>bankruptcy_Train.csv</b> — the training set with 64 predictors and 1 target variable</li><br>
+									<li><b>bankruptcy_Test_X.csv</b> — the test set with ID and 64 predictors</li><br>
+									<li><b>bankruptcy_sample_submission.csv</b> — the sample submission with ID and the predicted probability of firm bankruptcy</li>
+									</p>
+								<h3>Exploratory Data Analysis</h3>
+								<img src="images/DM01.png" width="600" height="400" alt=""><br>
+								<h3>Filtering and replacement to improve the data</h3>
+								<img src="images/DM02.png" width="800" height="400" alt=""><br>
+								<h3>Importance of filtering</h3>
+								<p align="justify"><li>Filtering the data to remove outliers</li><br>
+									<li>The method used is Rare Values
+									(Percentage) i.e. if the value occurs
+									less than 0.01 percentage times, then it will be removed</li><br>
+									<li>Default filtering method is Standard Deviation from the Mean</li>
+								</p>
+								<h3>Importance of Replacement</h3>
+								<p align="justify"><li>The limits of the attributes are set based on standard deviation from the mean</li><br>
+									<li>Replacement values are computed</li></p>
+								
+								<h3>Inital Model</h3>
+								<img src="images/DM03.png" width="800" height="500" alt=""><br>
+								<p align="justify"><li>The data is being divided into train and validation as 70%:30% resp</li><br>
+									<img src="images/DM04.png" width="400" height="200" alt=""><br>
+									<li>In this step we select the appropriate models</li>
+									<li>In the next step, we would be fine tuning each model individually to bring out their best performance</li>
+									<li>Further in the last step, we would ensemble them together</li>		
+								</p>
+								<img src="images/DM05.png" width="800" height="500" alt=""><br>
+								<h4>Ensemble of the four models increase the validation ROC</h4>
+								<p align="justify">Ensemble methods are machine learning techniques that combine the predictions of multiple models to make more accurate predictions. The idea behind ensemble methods is to create a strong learner by aggregating the predictions of multiple weak learners. A weak learner is a model that is slightly better than random guessing, while a strong learner is a model that performs significantly better than random guessing.
+
+									There are several ways to combine the predictions of multiple models, such as averaging, voting, or weighting. The specific method used depends on the type of ensemble and the goal of the modeling.</p>
+								<img src="images/DM06.png" width="800" height="500" alt=""><br>
+								<p>The validation receiver operating characteristic (ROC) curve is a useful evaluation metric for imbalanced datasets because it is sensitive to the class balance of the dataset. In an imbalanced dataset, the class with a minority of instances (the “minority class”) is often the one of interest, and it is important to have a metric that can accurately evaluate the performance of a model on this class.</p>
+
+									<p>The ROC curve plots the true positive rate (TPR) against the false positive rate (FPR) at various classification thresholds. The TPR is the proportion of positive instances that are correctly classified as positive, while the FPR is the proportion of negative instances that are incorrectly classified as positive. The area under the ROC curve (AUC) is a measure of the overall performance of a classifier. A model with a high AUC is able to correctly classify a higher proportion of positive instances and a lower proportion of negative instances.</p>
+									
+									<p>One advantage of using the ROC curve for evaluation is that it is not affected by the class balance of the dataset. In an imbalanced dataset, a model that simply predicts the majority class all the time can achieve a high accuracy, but this does not necessarily mean that the model is good at predicting the minority class. The ROC curve and AUC provide a more nuanced evaluation of the model’s performance, taking into account the TPR and FPR for both classes.</p>
+									
+									<p>In summary, the validation ROC curve and AUC are useful evaluation metrics for imbalanced datasets because they are sensitive to the class balance of the dataset and provide a more nuanced evaluation of a model’s performance.</p>
+								<h2>Key Takeaways</h2>
+								<p><li>Gradient Boost, Neural Network, Logistic Regression and HP Neural were used to individually tune to provide a descent ROC Score on validation data</li>
+
+									<li>Further, When all the four models are ensembled together, they provide a reasonably better ROC of 93.8%.</li>
+									
+									<li>Ensemble technique of averaging the event probabilities would combine the weak learners and maximize their predictive power.</li></p>
+								<h2>Final Model</h3>
+								<p align="justify">Final Model ensembles the previously created models</p>
+								<img src="images/DM07.png" width="800" height="500" alt=""><br>
+								<p><li>Creating 5 ensembles using the previously created models</li>
+									<li>However, the important change is that the seed for each and every model is changed so that the overfitting on training data can be avoided</li>
+									<li>This method would be efficient on test data as it combined several weak and strong learners and maximizes the predictive power
+									</li>
+								</p>
+								
+								<h4>Assesing Final Model</h4>
+								<img src="images/DM08.png" width="600" height="300" alt=""><br>
+								<p align="justify">
+									<li><b>Validation ROC is 95.2%</b> which is based on ensemble of several learners with different seeds so as to avoid overfitting</li>
+
+									<li>We can see from the Public and Private Leaderboard that this model provided a better ROC as it was not overfit on the training data</li></p>
+								<img src="images/DM09.png" width="400" height="400" alt=""><br>
+								
+								<h4>Learnings</h4>
+								<p><li>In case of imbalanced data, we need to look at the ROC as the performance criteria</li>
+								<li> Randomizing improves the performance on test data</li>
+								<li>Neural Network and Gradient Boosts are two strong models for cases where data has interaction and imbalance</li>
+								<li>Greedy Algorithms such as decision tree, etc. did not perform well in such cases</li></p>
+								<h4>Final Rank on Private Leaderboard</h4>
+								<p align="justify">The rank on public leaderboard was 13th, and the rank on final private leader board came to be 3rd among 45 teams from Purdue University MS BAIM Program</p>
+								<img src="images/DM10.png" width="800" height="350" alt=""><br>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						
+						<section>
+							<ul class="icons">
+								<li><a href="#" class="icon brands fa-linkedin alt"><span class="label">LinkedIn</span></a></li>
+								<li><a href="#" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
+							</ul>
+						</section>
+						<p class="copyright">&copy; 2023 Chethan Manjunath</p>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

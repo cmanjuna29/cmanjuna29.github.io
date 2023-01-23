@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Generic - Stellar by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>Marketing Analytics</h1>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Content -->
+							<section id="content" class="main">
+								<span class="image main"><img src="images/MAhead02.jpeg" width="200" height="600" alt=""> </span>
+								<h2>Objective</h2>
+								<p align="justify">To understand the characteristic features of customers, their purchase behaviour and the impact of iFood’s marketing activities.</p>
+								
+								<img src="images/MA01.png" width="1000" height="300" alt=""> <br>
+								<h2>Current Business Scenario</h2><br>
+								<img src="images/MA02.png" width="1000" height="300" alt=""> <br>
+								<p align="justify"><li>Volume of the store purchases is more than 1.4 times that of web purchases
+								</li><br>
+								<li>Wine is the most preferred item
+								</li>
+									</p>
+								<h2>Customer Characteristics </h2><br>
+								<img src="images/MA03.png" width="800" height="300" alt=""> <br>
+								<img src="images/MA04.png" width="800" height="300" alt=""><br>
+								
+								</li></p>
+								
+								
+								<h2>Purchase Behaviour - I</h2>
+								
+								
+									<img src="images/MA05.png" width="400" height="300" alt=""><br>
+									<p align="justify">As age increases, there is an initial drop in sales followed by a rise</p><br>
+									<p align="justify">
+									On conducting a hypothesis testing:<br>
+									H0: Sales are not impacted by age of customer<br>
+									H1: Sales are impacted by age of customer<br>
+									We get a p-value of 2.48e-08, which means we have enough statistical evidence to reject  the null hypothesis and conclude that sales are impacted by age
+									 </p>
+
+								<h2>Purchase Behaviour - II</h2>
+								
+								
+										 <img src="images/MA06.png" width="400" height="300" alt=""> <br>
+										 <p align="justify">Customers with higher income tend to order for more amount</p><br>
+									 	<p align="justify">
+										On conducting a hypothesis testing:<br>
+										H0: Sales are not impacted by income of customer<br>
+										H1: Sales are impacted by income of customer<br>
+										We get a p-value < 2e-16, which means we have enough statistical evidence to reject  the null hypothesis and conclude that sales are impacted by income<br>
+
+										  </p>
+								<h2>Purchase Behaviour - III</h2>
+								
+									
+										<img src="images/MA07.png" width="400" height="300" alt=""> <br>
+										<p align="justify">Customers without kids order for 4.7 times the amount as ones with kids</p><br>
+										<p align="justify">
+										On conducting a hypothesis testing:<br>
+										H0: Customers without kids do not spend more than customers with kids<br>
+										H1: Customers without kids spend more than customers with kids<br>
+										We get a p-value < 2e-16, which means we have enough statistical evidence to reject  the null hypothesis and conclude that customer without kids spend more than customers with kids<br>
+										</p>
+								<h3>Factors Affecting Campaign Effectiveness</h3>
+								
+								Identifying factors impacting customers’ propensity to accept a campaign:
+								<li>Model: Random Forest Classifier</li>
+								<li>Major Factors Identified: Recency of Purchase, Past campaign acceptance, Customer Lifetime</li>
+								<img src="images/MA08.png" width="400" height="300" alt=""> <br>
+								<b>On average, the customers who accepted campaigns in the past also showed tendency of accepting the current campaign. </b>
+								<img src="images/MA09.png" width="400" height="300" alt=""> <br>
+								<b>Customers who accepted the campaign have higher customer lifetime.</b><br>
+								<img src="images/MA10.png" width="400" height="300" alt=""> <br>
+								<b>Campaign acceptance higher with customers who have made a more recent purchase.</b><br>
+
+
+
+								
+								<h2>Customer Segments</h2>
+
+								<img src="images/MA11.png" width="400" height="300" alt=""> <br>
+								<p align="justify">4 Customer segments were created using K-means on customer’s Order Recency, Frequency and Amount Spent<br>
+
+									Understanding the demographics and purchase behaviors of these segments will help iFood target them better.
+									</p>
+
+								<h3>Segment A</h3>
+								<img src="images/MA13.png" width="200" height="300" alt=""> <br>
+								<img src="images/MA14.png" width="200" height="100" alt=""> <br>
+							
+								<p align="justify"><b>Recommendations</b>
+
+									<li>Promote on websites</li>
+									
+									<li>Promotions based on minimum spend condition:
+										  Ex – 15% off for orders above $100</li>
+									</p>
+
+								<h3>Segement B</h3>
+								<img src="images/MA15.png" width="200" height="300" alt=""> <br>
+								<img src="images/MA16.png" width="200" height="100" alt=""> <br>
+								<p align="justify"><b>Recommendations</b>
+
+									<li>Send catalogues with discounts via post 
+									</li>
+									
+									<li>Promotions focussed on Wines (Older customers have a higher spend on wine)
+									</li>
+									</p>
+								<h3>Segement C</h3>
+								<img src="images/MA17.png" width="200" height="300" alt=""> <br>
+								<img src="images/MA18.png" width="200" height="100" alt=""> <br>
+								<p align="justify"><b>Recommendations</b>
+
+									<li>Send catalogues with discounts via post </li>
+									
+									<li>Promotions focussed on Wines (Older customers have a higher spend on wine)</li>
+									<li>Offer loyalty points to incentivise them to buy often</li>
+									</p>
+
+								
+								<h3>Segement D</h3>
+								<img src="images/MA19.png" width="200" height="300" alt=""> <br>
+								<img src="images/MA20.png" width="200" height="100" alt=""> <br>
+								<p align="justify"><b>Recommendations</b>
+
+									<li>Less emphasis on such customers.</li>
+									</p>
+
+								
+								<h2>Association Rule Insights</h2>
+								<img src="images/MA21.png" width="600" height="600" alt=""> <br>
+								<p align="justify"><li><b>Support:</b> This is the measure of the frequency with which a particular item or combination of items appears in transactions.
+								</li>
+								<li><b>Confidence: </b>This is the measure of the likelihood that one item will be purchased if another item has already been purchased.
+								</li>
+								<li><b>Lift:</b> This is the ratio of the observed support for a combination of items to the expected support if the items were purchased independently.
+								</li>
+							</p>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						
+						<section>
+							<ul class="icons">
+								<li><a href="#" class="icon brands fa-linkedin alt"><span class="label">LinkedIn</span></a></li>
+								<li><a href="#" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
+							</ul>
+						</section>
+						<p class="copyright">&copy; 2023 Chethan Manjunath</p>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

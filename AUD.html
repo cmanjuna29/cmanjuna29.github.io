@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Generic - Stellar by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>Analyzing Unstructed Data</h1>
+						<h2>Indentifying misclassified job posting on Craigslist</h2>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Content -->
+							<section id="content" class="main">
+								<span class="image main"><img src="images/AUDhead.jpeg" width="200" height="600" alt=""> </span>
+								<h2>Background</h2>
+								<p align="justify">Online advertising, a marketing technique that utilizes the internet to promote services and products, is still growing rapidly, expected to reach US$ 349.6 Billion by 2027 by IMARC Group. Some of the most popular advertising websites in USA are Craigslist, Free Ads Time, FinderMaster, AdvertiseEra and so on. To assist our client Craigslist to have a bigger share of the market, we strive to improve the users’ experience on Craigslist. Job postings, as the very first addition to Craigslist’s website, catch our attention for advancement. We noticed that there are lots of misclassified job postings on the website, which would have caused lower customer engagement and customer retention. If people keep seeing misclassified job posts on the website, they might think it’s an untrustworthy place to look for jobs. Thus, it is very important for Craigslist to help employers put their job postings in the right section on the website.</p>
+								
+								<h2>Who is Craigslist?</h2>
+								<p align="justify">Craigslist is an American classified advertisements website with different sections such as jobs, housing, sales, services, and a whole lot more. It works like an online version of a classified section of a newspaper and can be filtered by your local region. Since it is free, people will be willing to put things that people might bother to put if it’s a paid ad. As a result, it is very convenient for people to connect with a huge range of people around the world to find, buy, or sell just about anything.
+									</p>
+								<h2>Subsection of the Project</h2>
+								<p align="justify">Craigslist can be a great source to find a job. People can find listings for a wide variety of fair opportunities, from part-time jobs to proper full-time ones. However, you can find a plethora of misclassification on Craigslist, which might cause the users’ inconvenience and inefficiency while searching for jobs in the correct criteria they want. Although Craigslist is not a website especially for job-hunting like LinkedIn, we’d like to improve the job-hunting experiences for people so that we can retain both employers and job seekers and make them keep coming back to the website. It is very important since job listings is one of the sections that Craigslist can ask for fees.</p>
+								<h2>Why Educational Jobs?</h2>
+								<p align="justify">With a looming recession and economic turbulence, comes the risk of job uncertainty and losses. Multiple sectors are affected in these times, especially the non-essential ones such as automobile, tourism, and real estate. Education/Private Tutoring domain is no different when in a budget crunch. Even schools cut down on staff.</p>
+
+									<p align="justify">Craigslist is an established platform that supports a big chunk of US gig economy, including the education sub-sector. A considerable chunk of the population relies on Craigslist to connect jobseekers and employers, and so do people from the fields of education/tutoring. Given the increasing need for this platform in current economic scenario, it is imperative that the right listings are shown to people looking for job/employees. Improperly classified records become a source of frustration and demotivation for people.</p>
+									
+									<p align="justify"></p>We’ve noticed around 20% of misclassification of jobs in education on the website. It would be a time-consuming job if Craigslist hire people to detect those posts and put them to the section that they belong to. The project objective is to catch posts that should not be put in the section of education of job listings, which we believe will add a big value to both our client (Craigslist) and its users. Users will have to spend less time finding the right job they want to apply for, which will lead to better reputation for Craigslist and increase its revenue.
+								</p>
+								<h2>Business Analysis</h2>
+								<h3>Objective</h3>
+								<p align="justify">Using ML, we’ve tried to lower the misclassification rate of education-related job postings on Craigslist for the benefit of people trying to get their next employment through the website. We scraped the relevant data from Craigslist for 82 different US cities. To ensure that our analytics were robust, we took a random sample including cities of all sizes and demographics. Our objective is to enhance users’ experience in finding an education-related job on Craigslist by showing them correct job listings. We will remove jobs that are not related to education to reduce the users’ job investigation time and efforts. To obtain this, we need to train a robust classification model to ensure we reach a decent correctness in classifying the jobs. We have used various machine learning algorithms such as Naive Bayes, Support Vector Machines, Random Forest, and Logistic Regression to classify the jobs into two categories: education-related and non-education related. We have also used various techniques such as hyperparameter tuning, and cross-validation to improve the accuracy of our model. We have also used various evaluation metrics such as ROC Curve and accuracy to evaluate our model's performance. Finally, we have compared our model's performance with other existing models and found that our model outperforms them in terms of accuracy and F1 score.</p>
+								
+								<h2>Data Analysis</h2>
+								<p align="justify">Given the business problem and objective decided, a framework was constructed to develop the solution. Identifying this as a classic example of classification problem under supervised learning, the below approach has been used.</p>
+								<img src="images/AUD01.png" width="1000" height="200" alt=""> 
+								<h3>Scraping</h3>
+								<p align="justify">The Craigslist website has been used to scrape exclusively the ‘education’ sub section under the ‘job’ category. A combination of Beautiful Soup in addition with Selenium HTML parsers are used for the same. List of cities were selected at the first place and then links for all the posts were obtained. Consequently, all the relevant information about the Job postings such as employment type, compensation, title, description etc. were collected.</p>
+								<h3>Data Pre-Processing</h3>
+								
+								<p align="justify">This step in the approach involved multiple sub steps given the data has lot of text and thereby not clean. The stages included are as follows:<br>
+								<li><b>Removal of Punctuation:</b> As lot of posts had whole lot of descriptions, the first stage excluded the punctuations (a set of 32 different symbols) before proceeding</li>
+								<li><b>Tokenization:</b> Now the data is clean from symbols and noise related to it, the sentences are split into tokens to be able to convert them into vectors</li>
+								<li><b>Lemmatize:</b>Word net lemmatizer was used to take care of inflected variations of single words. Thereby helping in reducing the dimensionality of the text dataset</li>
+								<li><b>Stop words:</b> The final stage within the data pre-processing was the removal of stop words in English. This ensured the elimination of commonly used words.</li><br>
+								Performing these steps addressed the dimensionality reduction problem in the earlier steps to be more precise and optimized.
+								</p>
+								
+								<h3>Manual Labelling</h3>
+								<p align="justify">For the machine to correctly classify, a proper grouping of correctly and incorrectly classified postings need to be identified. A manual review of all the data was done to correctly tag the misclassified posts. Given the number of negatives or mis classified are comparatively in good number (~20%), any additional sampling technique wasn’t used.</p>
+								<h4>EDA</h4>
+								<p align="justify">Before moving on to the modelling, a preliminary understanding of what kind of postings were being posted was analyzed. Based on the collected 1000 postings, topic modelling, an unsupervised learning technique was performed across the descriptions and titles text data. This helped us uncover abstract topics and cluster of words within the dataset which thereby can even use to tag the posts as an additional step in future. The analysis from the topic modelling are as follows:</p>
+
+								<p align="justify">The top 8 words for each of the topics modelled for job description gives us as idea that most of the posts consist of requirements seeking experienced schoolteachers. The other topics cover a range of requirements consisting of tutors, contractors, beginner teachers, sports coaches etc. While the probability of each post being mapped is higher for Topic 0 (as shown in the graph below), assumptions can be made for misclassified jobs posted in the education section may also consist of relevant words, but the function of the jobs may not be directly related to the education category.</p>
+								<img src="images/AUD02.png" width="400" height="220" alt=""> <br>
+								<p align="justify">Further 3 topics consisting of top 8 words were analyzed for job titles. This analysis indicated that most job titles are similar or standard for jobs that truly belong to the education category or those that don’t belong to the education category. As shown in the graph below, the distribution of most probable job titles in each topic is almost the same. </p>
+								<img src="images/AUD03.png" width="400" height="220" alt=""> <br>
+
+
+
+								<h3>Train-Test Split</h3>
+								<p align="justify">Moving towards the end objective, it is required to split the labelled dataset into test and train dataset and avoid overfitting the training dataset. The 1000 postings were split in the 70:30 ratio with test data set having 30% of misclassified labels and rest 70% with training data.</p>
+								<h4>Word2Vec</h4>
+								<p align="justify">Any supervised or unsupervised modelling technique requires a set of numbers to build the model. As a result, all the text currently present in the data needs to be moved into numbers. Different set of techniques, algorithms and pre-trained models are present for the conversion. However, the results from topic modelling showed a higher similarity to the education posts we were analyzing, thereby to capture that information, we proceeded with utilizing the TF_IDF technique for text vectorization. Bigrams were used to capture more information with constraint on minimum document frequency to eliminate unnecessary terms. 
+									For the description text documents, min_df of 6 was given. Whereas a min_df of 3 was used for the titles of these postings which are usually much shorter than the descriptions.
+								</p>
+								<h3>Training Classification Model</h3>
+								<p align="justify">The most crucial stage in the entire methodology is the building of a classification model that can accurately identify misclassified posts within the education subcategory. Different classification machine learning models were built on the training dataset.
+									All the vectorized text columns from the training were combined to form the final independent set of X variables. Both the manually labeled column, Y and vectorized text, X are fit into supervised classification algorithms.
+								</p>
+								<p>Machine learning techniques used to train the training dataset are as follows:<br>
+								<li><b>Logistic Regression:</b> Since the target variable is only 0 or 1, misclassified vs correctly classified, logistic regression is used with multiple penalty functions available. Estimated based on log odds of an event</li>
+								<li><b>Support Vector Machine:</b> Since SVM tries to find a plane that splits the class, SVM has been used as well. </li>
+								<li><b>Gaussian Naïve-Bayes:</b> Naïve Bayes also being a probabilistic machine learning model used for classification, it’s been used to train the data</li>
+								<li><b>Multinomial Naïve-Bayes:</b> When compared to Gaussian, since these are distinct words, multinomial was used as they tend to do better on such data</li>
+								<li><b>Random Forest:</b> Since it’s an ensemble of random decision trees, this also has been used</li>
+								<li><b>XG Boost Classifier:</b> It being the ultimate ensemble model that outperforms most of the supervised learning techniques, XG Boost classifier is used as well</li>
+								<li><b>Multilayer Perceptron – Fully Connected Neural Network:</b> This neural network was used to capture the non-linearity between the dependent and independent variables.</li><br>
+								But there needs to be a way to evaluate which model is performing the best before finalizing it with the client.
+								</p>
+								<h2>Validation</h2>
+								<p align="justify">This final stage in the process flow helped us analyze which model performed good when compared to the rest. The validation is performed using the rest 30% data which was split earlier. </p>
+
+									<p>Before predicting the labels, validation set which are words are also converted to vectors by transforming on to the TF_IDF words vocabulary. As a preliminary analysis, the scores of the different models were analyzed to understand which models performed overall better. The initial accuracy scores for various models are highlighted below:
+									</p>
+								<img src="images/AUD04.png" width="400" height="200" alt=""> <br>
+								<p>Given the initial iterations gave good scores for most models, we proceeded with doing hyper parameter tuning to identify the best parameter for the best models. 
+									Since the main business context is to identify the misclassified posts and then help client to flag them in the future, looking at only accuracy score can often be misleading in case of classification problems, given the bias in positive and negative samples. So, we considered the area under ROC curve which isn’t affected by the sample bias.
+									</p>
+								<img src="images/AUD05.png" width="400" height="300" alt=""><br>
+								<p align="justify">Along with ROC Curves, looking at confusion matrix; help us chose the XGBoost Classifier with a learning rate of 0.1. Keeping in mind the reduction of misclassified posts, reduction of false negatives was of the critical importance in this case.</p>
+								<h2>Conclusion</h2>
+								<p align="justify">Using the model built is beneficial to not just the client, Craigslist in this case, but also to the users, which is kind of a win-win situation. It helps users find the relevant posts by escaping the myriad of irrelevant content and thereby improving user experience with the website, which in turn benefits the Craigslist. This additional filtering or flagging thereby provides Craigslist in creating a competitive advantage over others.</p>
+								<p align="justify">Value addition that can be brought to the client Craigslist by implementing this automatic misclassification are as follows:<br>
+									<li>Overall improvement in Craigslist reputation for better handling of postings</li>
+									<li>Higher customer engagement given the presence of comparatively more relevant content</li>
+									<li>Improves the customer lifetime value, in terms of relying on craigslist for longer durations</li>
+									<li>Enhances the customer trust due to higher percentage of correctly tagged posts in the results</li>
+									<li>Become an authorized or huge trusted resource for any jobs starting from lower wage to moderately waged contracts</li><br>
+									Coming to the value addition for user by flagging the misclassified posts are as follows:<br>
+									<li>Finding the right content in relatively lower times</li>
+									<li>Enhancement in reliable number of postings to go through and ease to apply</li>
+									<li>Elimination of irrelevant or misclassified content thereby narrowing down on the number of posts to look for.</li><br>
+									This way, adopting the model keeps Craigslist and users in a win-win strategy. Also, this increases in trust and reputation, could potentially turn into higher revenues for the craigslist, thereby more reason to implement it.
+								</p>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						
+						<section>
+							<ul class="icons">
+								<li><a href="#" class="icon brands fa-linkedin alt"><span class="label">LinkedIn</span></a></li>
+								<li><a href="#" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
+							</ul>
+						</section>
+						<p class="copyright">&copy; 2023 Chethan Manjunath</p>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
